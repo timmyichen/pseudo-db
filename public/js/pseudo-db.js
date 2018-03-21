@@ -1,5 +1,5 @@
 /* global $ */
-window.pdb = {
+var pdb = {
   upload: (secret, data) => {
     $.post(`http://pseudo-db.herokuapp.com/upload/${secret}`, data)
       .then(res => {
