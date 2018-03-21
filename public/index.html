@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pseudo DB</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <h1>Pseudo DB</h1>
+    <p>A very simple mock-database for learning and easy data persistence.</p>
+    <p>
+      How to use:<br/><br/>
+      1. Include the following script tags in your HTML:
+      <pre><code>
+&lt;script src="https://code.jquery.com/jquery-2.2.4.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://pseudo-db.herokuapp.com/js/pseudo-db.js"&gt;&lt;/script&gt;
+      </code></pre>
+      2. Choose a <code>secret</code> for your data.  Must be text, without spaces, digits are okay.
+      <br/><br/>
+      3. Uploading Data - to upload data to the db, call upon the function <code>pdb.upload(secret, data)</code>.  Uploading data will overwrite any existing data.  Example:
+      <pre><code>
+const data = {
+  name: 'Tim',
+  age: 26,
+};
+
+pdb.upload('supers3cre+w0w', data);
+      </code></pre>
+      4. Downloading Data - to download the data from the db, call upon the function <code>pdb.download(secret)</code>.  This returns a promise, which you can then use <code>.then()</code> to handle the data once it comes back.  Example:
+      <pre><code>
+pdb.download('supers3cre+w0w').then(data => {
+  console.log(data);
+});
+      </code></pre>
+    </p>
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+  </body>
+</html>
