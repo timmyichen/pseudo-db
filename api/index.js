@@ -8,7 +8,7 @@ router.use(bodyParser.json());
 
 router.post('/upload/:secret', (req, res) => {
   const { data } = req.body;
-  const { secret } = req.query;
+  const { secret } = req.params;
   const { db } = req.app.locals;
   
   db.collection('data').update({ secret }, { $set: {data} }, { upsert: true }, (err, response) => {
