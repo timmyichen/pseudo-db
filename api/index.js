@@ -21,7 +21,7 @@ router.post('/upload/:secret', (req, res) => {
 });
 
 router.get('/download/:secret', (req, res) => {
-  const { secret } = req.query;
+  const { secret } = req.params;
   const { db } = req.app.locals;
   
   db.collection('data').findOne({ secret })
