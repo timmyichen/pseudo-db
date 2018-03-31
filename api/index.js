@@ -11,7 +11,7 @@ router.post('/upload/:secret', (req, res) => {
   const { secret } = req.query;
   const { db } = req.app.locals;
   
-  db.collection('data').updateOne({ secret }, { $set: {data} }, { upsert: true }, (err, response) => {
+  db.collection('data').update({ secret }, { $set: {data} }, { upsert: true }, (err, response) => {
     if (err) {
       console.log('error in upload', err);
       return res.status(500).send({ error: err });
