@@ -1,7 +1,7 @@
 /* global $ */
 var pdb = {
   upload: (secret, data) => {
-    $.post(`/https://pseudo-db.herokuapp.com/api/upload/${secret}`, data)
+    $.post(`https://pseudo-db.herokuapp.com/api/upload/${secret}`, data)
       .then(res => {
         console.log("Successfully uploaded data with secret", secret);
       },
